@@ -1,0 +1,28 @@
+//设置1px边框
+.border-1px(@color){
+	position:relative;
+	&:after{
+		display: block;
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    width: 100%;
+	    border-top: 1px solid @color;
+	    content: "";
+	}
+}
+
+//设置背景图片，使用媒体查询根据DPR的值设置相应的背景图片
+.bg-img(@url){
+	background: url("@{url}@2x.png") no-repeat;
+	@media(-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+		background: url("@{url}@3x.png") no-repeat;
+	}
+}
+
+//去除1px边框
+.border-none(){
+  &:after{
+    display: none;
+  }
+}
